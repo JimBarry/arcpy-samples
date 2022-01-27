@@ -50,8 +50,8 @@
 
 #### STEP 1
 
-## ENTER HERE the path to the FOLDER into which you saved "lit_rail.gdb"
-data_path = 'C:/mapdata/HNIT/data/'
+## ENTER HERE the path to the FOLDER into which you saved "lit_rail.gdb", closing slash
+data_path = 'C:/mapdata/data/' # just a sample
 
 
 #### STEP 2
@@ -59,7 +59,7 @@ data_path = 'C:/mapdata/HNIT/data/'
 ## INPUT ROUTES FEATURE CLASS AND FIELDS
 
 # fgdb and the input routes PolylineZM feature class
-fcIN = data_path + 'lit_rail.gdb/tracks_routes'
+fcIN = data_path + 'name_of_your.gdb/tracks_routes'
 # fields from input routes feature class that we need... 
 #  ...to bring over to the output calibration point feature class
 fieldsIN = ['SHAPE@', 'RouteName', 'RouteId']
@@ -71,7 +71,7 @@ fieldsIN = ['SHAPE@', 'RouteName', 'RouteId']
 
 # the fgdb where the calibration points will be created
 # --be sure this new PointZM feature class is empty
-fcOUT = data_path + 'lit_rail.gdb/calib_points'
+fcOUT = data_path + 'name_of_your.gdb/calib_points'
 # fields that the calibration points feature class will need
 fieldsOUT = ['SHAPE@', 'RouteName', 'RouteId', 'Measure']
 
