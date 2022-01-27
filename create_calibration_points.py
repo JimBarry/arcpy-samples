@@ -50,7 +50,8 @@
 
 #### STEP 1
 
-## ENTER HERE the path to the FOLDER into which you saved "lit_rail.gdb", closing slash
+## ENTER HERE the path to the FOLDER into which you saved the fgdb that...
+## ...contains both the input polylines and output points, with closing slash
 data_path = 'C:/mapdata/data/' # just a sample
 
 
