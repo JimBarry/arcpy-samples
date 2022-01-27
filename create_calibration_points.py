@@ -79,37 +79,36 @@ fieldsOUT = ['SHAPE@', 'RouteName', 'RouteId', 'Measure']
 #
 
 # the InsertCursor we need for writing calibration points into
-# ...the output PointZM feature class
+# ...the output PointZ feature class
 cursorWRITE = arcpy.da.InsertCursor(fcOUT, fieldsOUT)
 
-# the SearchCursor we need for reading vertices and attributes
-# ...out of the input PolylineZM routes feature class
-with arcpy.da.SearchCursor(fcIN, fieldsIN) as cursorREAD:
+# the SearchCursor we need for reading vertices and attributes out 
+# ...of the input PolylineM (or PolylineZM) routes feature class
+cursorREAD = arcpy.da.SearchCursor(fcIN, fieldsIN)
+#with arcpy.da.SearchCursor(fcIN, fieldsIN) as cursorREAD:
     
-    recno = 0
+recno = 0
     
-    # for each feature record in the input PolylineZM feature class
-    for row in cursorREAD:
+# for each feature record in the input PolylineZM feature class
+for row in cursorREAD:
         
-        # get route name and id
-        strRouteName = 'route - ' + str(recno)
-        strRouteId = row[2]
+    # get route name and id
+    strRouteName = 'route - ' + str(recno)
+    strRouteId = row[2]
         
-        #loop thru each vertex of each part
-        pline = row[0]
-        for part in pline:
-            for pnt in part:
-                # read out the M value, so that it can be written.. 
-                # ...into the output 'Measure' column
-                m = pnt.M  
-                # write each point to the output calibration point feature class
-                cursorWRITE.insertRow([pnt, strRouteName, strRouteId, m])
+    #loop thru each vertex of each part
+    pline = row[0]
+    for part in pline:
+        for pnt in part:
+            # read out the M value, so that it can be written.. 
+            # ...into the output 'Measure' column
+            m = pnt.M  
+            # write each point to the output calibration point feature class
+            cursorWRITE.insertRow([pnt, strRouteName, strRouteId, m])
         
-        recno += 1
+    recno += 1
 
 # report back and clean up
 print('ALL DONE')
 del cursorREAD
 del cursorWRITE
-
-
