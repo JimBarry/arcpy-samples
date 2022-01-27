@@ -15,11 +15,11 @@
 # Prep:
 #
 # First, before you run the script, use Catalog to create a new empty
-# PointZM feature class that uses the same spatial reference as the 
-# input PolylineZM routes feature class, and the same fields as is in
-# your LRS Network's Calibration_Points feature class.  This script 
-# assumes that the input PolylineZM and the output PointZM are in 
-# the same FGDB.
+# PointZ feature class that uses the same spatial reference as the 
+# input PolylineM (or PolylineZM) routes feature class, and the same 
+# fields as is in your LRS Network's Calibration_Points feature class. 
+# This script assumes that the input PolylineM (or PolylineZM) fc and 
+# the output PointZ fc are in the same FGDB.
 # 
 # Before you run the script, check all the pathing and naming stuff in
 # the first cell below to ensure it lines up with reality. 
@@ -28,13 +28,13 @@
 #
 # As for the script itself, when you run it, it will loop through every 
 # vertex, of every part, of every polyline, and for each vertex, it will 
-# write out a new PointZM feature and record, and also the minimum 
+# write out a new PointZ) feature and record, and also the minimum 
 # attributes that the LRS Network is expecting as a calibration points 
-# feature class.  Namely: PointMZ, RouteName, RouteID, Measure
+# feature class.  Namely: PointZ, RouteName, RouteID, Measure
 #
 # After you run the script:
 # 
-# You can take the new output PointZM and append it to your LRS Network's
+# You can take the new output PointZ and append it to your LRS Network's
 # Calibration_Points feature class, or replace it, or however you want
 # to do it. Make sure the fields are the same, or that the field
 # mappings are correct before the append.  Once these new features/records
