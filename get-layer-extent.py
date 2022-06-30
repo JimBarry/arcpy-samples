@@ -13,6 +13,7 @@ aprx = arcpy.mp.ArcGISProject("CURRENT")
 m = aprx.listMaps("name_of_your_map")[0]
 lyr = m.listLayers("name_of_the_layer")[0]
 
+# layer has a dataSource, which can be Describe'd, then from that Description, read the extent and spatialReference
 src = lyr.dataSource
 desc = arcpy.Describe(src)
 ext = desc.extent #bounding box
