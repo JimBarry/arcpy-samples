@@ -31,15 +31,15 @@ import json
 
 
 #location of FGDB folder the contains the edges and junctions feature classes
-arcpy.env.workspace = r'C:\mapdata\Diagram_JSON_to_FC\data\ns_leach_schematic.gdb'
+arcpy.env.workspace = r'C:\path\to\your\file.gdb'
 
 #edges/junctions feature classes, and the oid and shape fields
-cursorPolylines = arcpy.da.UpdateCursor("tracks_schematic_23", ["OBJECTID", "SHAPE@"])
-cursorPoints = arcpy.da.UpdateCursor("switches_schematic_23", ["OBJECTID", "SHAPE@"])
+cursorPolylines = arcpy.da.UpdateCursor("your_tracks_fc_name", ["OBJECTID", "SHAPE@"])
+cursorPoints = arcpy.da.UpdateCursor("your_switches_fc_name", ["OBJECTID", "SHAPE@"])
     
 
 #open the json file that contains the exported diagram
-jsonDX = open(r'C:\mapdata\Diagram_JSON_to_FC\data\exported_1.json')
+jsonDX = open(r'C:\path\where\you\stored\the\diagram_export.json')
 
 #load the json object contents into a python object tree structure
 dataDX = json.load(jsonDX)
