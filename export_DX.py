@@ -74,7 +74,7 @@ for row in cursorPoints:
             z = junction['geometry']['z']
             m = junction['geometry']['m']
             pt = arcpy.Point(x,y,z,m)
-            ptGeometry = arcpy.PointGeometry(pt, spatial_reference=wkid)
+            ptGeometry = arcpy.PointGeometry(pt, wkid)
             row[1] = ptGeometry
             cursorPoints.updateRow(row)
     
@@ -117,7 +117,7 @@ for row in cursorPolylines:
                 pathNew.add(pt)
             paths = arcpy.Array()
             paths.add(pathNew)
-            pline = arcpy.Polyline(paths, spatial_reference=wkid)
+            pline = arcpy.Polyline(paths, wkid)
             row[1] = pline
             cursorPolylines.updateRow(row)
 
