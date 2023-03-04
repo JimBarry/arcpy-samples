@@ -52,7 +52,7 @@ for row in cursorODs:
 
     # just so that you see it running
     print(str(ctr) + "- min: " + str(travel_time_minutes) + "; miles:" + str(travel_distance_miles))
-    ctr=ctr+1
+    ctr+=1
   
 print("DONE")
 del cursorODs
