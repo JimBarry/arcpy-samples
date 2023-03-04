@@ -61,8 +61,9 @@ for row in cursorODs:
     cursorODs.updateRow(row)
 
     # display the results to the notebook if you want
-    print(str(ctr+=) + "- min: " + str(travel_time_minutes) + "; miles:" + str(travel_dist_miles))
-
+    print(str(ctr) + "- min: " + str(travel_time_minutes) + "; miles:" + str(travel_dist_miles))
+    ctr+=1
+    
 # finish up
 print("DONE")
 del cursorODs
