@@ -2,7 +2,7 @@ import arcpy
 import requests
 import json
 
-# set this value between 1-5 to control the topLevelHierarchy
+# set this value between 1-5 to control the topHierarchyLevel
 hier = "1"
 
 # FGDB and cursor built on the FC
@@ -16,7 +16,7 @@ impedance = "&impedanceAttributeName=Miles"
 accum = "&accumulateAttributeNames=Minutes"
 directions = "&returnDirections=false"
 output_lines = "&outputLines=esriNAOutputLineNone"
-overrides = "&overrides=%7BtopHierarchyLevel=" + hier + "%7D"
+overrides = "&overrides=%7BtopHierarchyLevel=" + hier + "%7D" # ie, overrides = {topHierarchyLevel=1}
 token = "&token=xxxxx" #your token or API Key goes here
 return_format = "&f=pjson"
 
