@@ -10,7 +10,7 @@ arcpy.env.workspace = r'C:\mapdata\NSroutes\data\routes_data.gdb'
 cursorODs = arcpy.da.UpdateCursor("ods_hierarchies", ["Origin_Lat", "Origin_Long", "Destin_Lat", "Destin_Long", "Miles_TopH_"+hier, "Mins_TopH_"+hier])
 
 # start building the REST API URL; all but the "stops"
-route_url = "https://route.arcgis.com/arcgis/rest/services/World/Route/NAServer/Route_World/solve?"
+route_url = "https://route.arcgis.com/arcgis/rest/services/World/Route/NAServer/Route_World/solve"
 use_hier = "&useHierarchy=true"
 impedance = "&impedanceAttributeName=Miles"
 accum = "&accumulateAttributeNames=Minutes"
