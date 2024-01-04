@@ -58,7 +58,12 @@ scDistrict = arcpy.da.SearchCursor(selDistrict, fldsCongress)
 	
 # format and display the results to the user
 for row in scDistrict:
-    result = "\nStandardized address: " + standardized_address + "\n\nState: " + row[0] + "\nDistrict: " + row[1] + "\nRepresentative: " + row[2] + "\nParty: " + row[3]
+    result = "\nStandardized address: " + standardized_address + \
+	     "\n" + \
+	     "\nState: " + row[0] + \
+	     "\nDistrict: " + row[1] + \
+	     "\nRepresentative: " + row[2] + \
+	     "\nParty: " + row[3]
     print(result)
     
     
