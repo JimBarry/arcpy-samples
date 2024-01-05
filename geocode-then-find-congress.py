@@ -2,6 +2,10 @@ import arcpy
 import requests
 import json
 
+### User inputs a US street address and in return is shown
+### information about the Congressional District that address
+### resides within.
+
 # GEOCODE THE INPUT ADDRESS
 
 input_address = input('Enter a street address:')
