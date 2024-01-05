@@ -1,5 +1,8 @@
 import arcpy
 
+### Script copies file attachments from one feature class to another
+### using values in related fields that have a 1-1 relationship.
+
 #Script assumes that both feature classes and related attachment tables
 # are all in the same file geodatabase.
 #If they're not, then you can do some tweaking to ensure that the
