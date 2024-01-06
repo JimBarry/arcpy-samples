@@ -20,12 +20,13 @@ extra_params = "&f=json"
 api_url = geocode_url + input_address_parameter + token + extra_params
 
 # make the REST API call request
+# and receive response
 response = requests.get(api_url)
 
-# receive the REST API call response
+# format the response into JSON
 response_json = response.json()
 
-# parse the json response to pull out the data that we need
+# parse the JSON response to pull out the data that we need
 best_candidate = response_json["candidates"][0]
 standardized_address = best_candidate["address"]
 location = best_candidate["location"]
