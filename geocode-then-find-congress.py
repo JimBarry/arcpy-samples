@@ -40,14 +40,14 @@ print('x: ' + str(x) + ', ' + 'y: ' + str(y))
 
 # FIND THE CONGRESSIONAL DISTRICT FOR A POINT LOCATION
 
-# the feature class where we will store the geocoded point
-fcGeocodedPoint = "C:/mapdata/congress_districts/data/congress_data.gdb/geocoded_points"
-
 # the feature class that contains the congressional district polygons
 fcCongress = "C:/mapdata/congress_districts/data/congress_data.gdb/USA_118_Congress"
 
 # the fields in that feature class that contain the data we're want to know
 fldsCongress = ["STATE_NAME", "CDFIPS", "NAME", "PARTY"]
+
+# the feature class where we will store the geocoded point
+fcGeocodedPoint = "C:/mapdata/congress_districts/data/congress_data.gdb/geocoded_points"
 
 # edit the geocoded point into the "geocoded_points" feature class
 ucGeocodedPoint = arcpy.da.UpdateCursor(fcGeocodedPoint, ["SHAPE@"])
