@@ -30,13 +30,13 @@ def normalize_bearing(angle):
 #------------------------------------------------
 
 # FGDB for reading in the track lines, and where the curve points will go
-fgdb = "C:/mapdata/UP_Curvature/data/UPRR_Track_Alhambra_2.gdb"
+fgdb = "C:/mapdata/Curvature/data/RR_Track.gdb"
 arcpy.env.workspace = fgdb
 
 # FC of the track centerlines
 # ...this FC must contain PolylineM route features
 # ...this routes FC must be calibrated so that every vertex's M is a milepost value
-fcIN = fgdb + "/TRK_CTL_Alhambra_routes_calib_milepost"
+fcIN = fgdb + "/TRK_CTL_routes_calib_milepost"
 fieldsIN = ['SHAPE@']
 cursorREAD = arcpy.da.SearchCursor(fcIN, fieldsIN)
 
@@ -53,9 +53,9 @@ print('lenD: ' + str(pline_D_len) + ', lenM: ' + str(pline_P_len))
 
 # FC for writing out the curve points, stored in the same FGDB
 # ensure the FGDB also contains the feature class template!
-arcpy.management.CreateFeatureclass(fgdb, "curve_points2", "POINT", \
+arcpy.management.CreateFeatureclass(fgdb, "curve_points", "POINT", \
                                     "curve_points_template", "ENABLED", "ENABLED", sr4326)
-fcOUT = fgdb + "/curve_points2"
+fcOUT = fgdb + "/curve_points"
 fieldsOUT = ['SHAPE@', 'X', 'Y', 'lambda', 'phi', 'milepost', \
              'curve_percent_actual', 'curve_percent_absolute', 'curve_direction']
 cursorWRITE = arcpy.da.InsertCursor(fcOUT, fieldsOUT)
