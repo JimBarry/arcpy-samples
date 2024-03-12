@@ -6,10 +6,14 @@
 # Each route should be calibrated so that the M values are mileposts.
 # For each route feature, this script walks from start to end, placing a 
 # measure point every 50' so that each three sets of points is 100' long,
-# creating a measureable angle. You can adjust this value on LINE 22. 
+# creating a measureable angle. You can adjust this value on LINE 26. 
 # 
 # Then during this walk, the angle created by each set of three points 
 # can be measured, and then stored in the center point's attribute record.
+#
+# When the angle created by each set of three measured points is 
+# less than 0.1 degrees, that angle is considered "STRAIGHT". This 
+# curve tolerance value is also adjustable on LINE 32.
 
 import arcpy
 
