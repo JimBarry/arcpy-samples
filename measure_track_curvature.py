@@ -1,5 +1,16 @@
 #------START OF SCRIPT---------------------------
 
+# This script measures railroad track curvature.
+# 
+# This script runs on an M-enabled Polyline feature class built for routes.
+# Each route should be calibrated so that the M values are mileposts.
+# For each route feature, this script walks from start to end, placing a 
+# measure point every 50' so that each three sets of points is 100' long,
+# creating a measureable angle. You can adjust this value on LINE 22. 
+# 
+# Then during this walk, the angle created by each set of three points 
+# can be measured, and then stored in the center point's attribute record.
+
 import arcpy
 
 # spatial reference conversion objects
