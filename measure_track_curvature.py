@@ -119,13 +119,13 @@ while endpt_len < pline_P_len:
     
     #### calculate the first and second bearings, and the delta
     aad1 = ptgStart_D.angleAndDistanceTo(ptgBase_D)
-    angle1 = aad1[0]
+    angle1 = round(aad1[0], 5)
     bearing1 = normalize_bearing(angle1)
     aad2 = ptgBase_D.angleAndDistanceTo(ptgEnd_D)
-    angle2 = aad2[0]
+    angle2 = round(aad2[0], 5)
     bearing2 = normalize_bearing(angle2)
     bearing_delta = bearing2 - bearing1
-    curve_percent_actual = bearing_delta
+    curve_percent_actual = round(bearing_delta, 5)
     curve_percent_absolute = abs(bearing_delta)
     if curve_percent_actual > 0:
         curve_direction = "RIGHT"
