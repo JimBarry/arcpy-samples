@@ -1,4 +1,4 @@
-#------START OF SCRIPT---------------------------
+#------START OF SCRIPT--------------------------
 
 # This script measures railroad track curvature.
 # 
@@ -22,16 +22,17 @@ sr4326 = arcpy.SpatialReference(4326)
 sr102005 = arcpy.SpatialReference(102005)
 gt = "NAD_1983_To_WGS_1984_4"
 
+# curve tolerance, a curve percent less than this is considered "STRAIGHT"
+CURVE_TOLERANCE_PERCENT = 0.1
+
 # measurement constants: feet, meters, miles
 CURVE_LENGTH_INTERVAL_FEET = 100  # 100' per USDOT FRA PTC
 CURVE_POINT_INTERVAL_FEET = CURVE_LENGTH_INTERVAL_FEET / 2
 CURVE_POINT_INTERVAL_METERS = CURVE_POINT_INTERVAL_FEET * 0.3048
 CURVE_POINT_INTERVAL_MILES = CURVE_POINT_INTERVAL_FEET * 0.0001893932
 
-# curve tolerance, a curve percent less than this is considered "STRAIGHT"
-CURVE_TOLERANCE_PERCENT = 0.1
 
-#------------------------------------------------
+#-----------------------------------------------
 
 # normalize bearing to 0-360 degrees
 def normalize_bearing(angle):
@@ -42,7 +43,7 @@ def normalize_bearing(angle):
         az = 0
     return az 
 
-#------------------------------------------------
+#-----------------------------------------------
 
 # FGDB for reading in the track lines, and where the curve points will go
 fgdb = "C:/mapdata/Curvature/data/RR_Track.gdb"
@@ -64,7 +65,7 @@ pline_P = pline_D.projectAs(sr102005, gt)
 pline_P_len = round(pline_P.length, 5)
 print('lenD: ' + str(pline_D_len) + ', lenM: ' + str(pline_P_len))
     
-#------------------------------------------------
+#-----------------------------------------------
 
 # FC for writing out the curve points, stored in the same FGDB
 # ensure the FGDB also contains the feature class template!
@@ -75,7 +76,7 @@ fieldsOUT = ['SHAPE@', 'X', 'Y', 'lambda', 'phi', 'milepost', \
              'curve_percent_actual', 'curve_percent_absolute', 'curve_direction']
 cursorWRITE = arcpy.da.InsertCursor(fcOUT, fieldsOUT)
 
-#------------------------------------------------
+#-----------------------------------------------
 
 # initialize the output curve point FC with its first record
 # ( measuring curvature begins with the 2nd curve point)
@@ -88,7 +89,7 @@ to_insert = [ptgFirst_D, ptFirst_P.X, ptFirst_P.Y, ptFirst_D.X, ptFirst_D.Y, thi
              0, 0, 'STRAIGHT']
 cursorWRITE.insertRow(to_insert)
 
-#------------------------------------------------
+#-----------------------------------------------
 
 startpt_len = 0
 basept_len = startpt_len + CURVE_POINT_INTERVAL_METERS
@@ -153,7 +154,7 @@ del cursorWRITE
     
 print('done')    
 
-#------END OF SCRIPT-----------------------------
+#------END OF SCRIPT----------------------------
 
 
 
