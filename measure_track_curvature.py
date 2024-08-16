@@ -128,6 +128,8 @@ while endpt_len < pline_P_len:
     bearing_delta = bearing2 - bearing1
     curve_percent_actual = round(bearing_delta, 5)
     curve_percent_absolute = abs(bearing_delta)
+    
+    # determine if this measured angle is right, left, or straight
     if curve_percent_actual > 0:
         curve_direction = "RIGHT"
     if curve_percent_actual < 0:
