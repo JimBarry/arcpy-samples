@@ -12,7 +12,7 @@
 # can be measured, and then stored in the center point's attribute record.
 #
 # When the angle created by each set of three measured points is 
-# less than 0.1 degrees, that angle is considered "STRAIGHT". This 
+# less than 0.5 degrees, that angle is considered "STRAIGHT". This 
 # curve tolerance value is also adjustable on LINE 26.
 
 import arcpy
