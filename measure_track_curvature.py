@@ -13,7 +13,7 @@
 #
 # When the angle created by each set of three measured points is 
 # less than 0.1 degrees, that angle is considered "STRAIGHT". This 
-# curve tolerance value is also adjustable on LINE 32.
+# curve tolerance value is also adjustable on LINE 26.
 
 import arcpy
 
@@ -23,7 +23,7 @@ sr102005 = arcpy.SpatialReference(102005)
 gt = "NAD_1983_To_WGS_1984_4"
 
 # curve tolerance, a curve percent less than this is considered "STRAIGHT"
-CURVE_TOLERANCE_PERCENT = 0.1
+CURVE_TOLERANCE_PERCENT = 0.5
 
 # measurement constants: feet, meters, miles
 CURVE_LENGTH_INTERVAL_FEET = 100  # 100' per USDOT FRA PTC
