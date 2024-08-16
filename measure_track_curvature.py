@@ -1,7 +1,11 @@
 #------START OF SCRIPT--------------------------
 
 # This script measures railroad track curvature.
+# 2024-06-01
 # 
+# Questions, comments: contact Jim Barry at Esri: jbarry@esri.com
+# 
+#
 # This script runs on an M-enabled Polyline feature class built for routes.
 # Each route should be calibrated so that the M values are mileposts.
 # For each route feature, this script walks from start to end, placing a 
