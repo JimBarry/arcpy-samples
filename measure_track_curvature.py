@@ -134,6 +134,7 @@ while endpt_len < pline_P_len:
     curve_percent_absolute = abs(bearing_delta)
     
     # determine if this measured angle is right, left, or straight
+    curve_direction = "UNKNOWN"      # default
     if curve_percent_actual > 0:
         curve_direction = "RIGHT"
     if curve_percent_actual < 0:
